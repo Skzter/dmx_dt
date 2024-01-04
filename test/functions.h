@@ -13,7 +13,7 @@ void dimmen(int proz, int nr){
 			DmxSimple.write(channel_start, float(proz) / 100 * 255);
 			break;
 		case 2: case 3:
-			DmxSimple.write(channel_start, float(proz) / 100 * 126 + 8);
+			DmxSimple.write(channel_start, float(proz) / 100 * 127 + 7);
 			break;
   }
 }
