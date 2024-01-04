@@ -1,4 +1,4 @@
-#include"C:\Users\bruno\OneDrive\HTWK\Digitaltechnik_I\Arduino\functions.h"
+#include"functions.h"
 
 void nextBeat(int);
 
@@ -9,10 +9,12 @@ double nextBeat(double time){
   return time + 517.24;
 }
 void setup() {
+double start = millis();
+farbeRGB(255,0,200,2);
+
 
 /*synchrones blinken
-double start = millis();
-farbeRGB(255,0,200,1);
+
 while(true){
   dimmen(100,1);
   delay(100);
@@ -20,6 +22,17 @@ while(true){
   start = nextBeat(start);
 }*/
 
+//synchrones Nicken
+
+while(true){
+drehen(180,30,100,2);
+delay(200);
+dimmen(100,2);
+drehen(180,0,100,2);
+delay(50);
+dimmen(0,2);
+start = nextBeat(start);
+}
 
 }
 
