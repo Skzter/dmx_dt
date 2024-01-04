@@ -1,6 +1,6 @@
 #include"functions.h"
 
-void nextBeat(int);
+double nextBeat(double);
 
 double nextBeat(double time){
   while (millis() < time + 517.24){
