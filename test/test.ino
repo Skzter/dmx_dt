@@ -13,15 +13,6 @@ double start = millis();
 farbeRGB(255,0,200,2);
 
 
-/*synchrones blinken
-
-while(true){
-  dimmen(100,1);
-  delay(100);
-  dimmen(0,1);
-  start = nextBeat(start);
-}*/
-
 //synchrones Nicken
 
 while(true){
