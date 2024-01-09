@@ -40,7 +40,6 @@ for(int i = 3; i > 0; i--){
   double start = millis();
 
 
-
 drehen(0,150,100,2);
 drehen(0,150,100,3);
 farbeRGB(255,0,0,2);
@@ -52,7 +51,7 @@ white(4);
 
 
 while(true){
-    n_blinken(7, start);
+    n_blinken(3, start);
     dimmen(100,1);
     dimmen(100,2);
     dimmen(100,3);
@@ -66,9 +65,16 @@ while(true){
     
     start = nextBeat(start);
   }
+  
 }
 
-void loop() {
+/*void loop() {
+drehen(180,0,100,2);
+delay(1000);
+drehen(100,0,100,2);
+delay(1000);
+*/
+
   // put your main code here, to run repeatedly:
 
 }

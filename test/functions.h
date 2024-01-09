@@ -17,7 +17,9 @@ void dimmen(int proz, int nr){
 			break;
   }
 }
-void drehen(int x, int y, int speed, int nr){
+
+
+void drehen(int x, int y, int speed, int nr){   
         int channel_start = channelStart(nr) - 5;
         DmxSimple.write(channel_start + 4, (1 - float(speed) / 100) * 255);
         DmxSimple.write(channel_start, float(x) / 540 * 255);
