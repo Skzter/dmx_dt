@@ -91,14 +91,6 @@ for (int i = 1; i <= 60; i++){
   case 55:
     drehen(0,150,100,2);
     drehen(0,150,100,3);
-  case 56:
-
-    farbeRGBW(255,0,0,0,2);
-    farbeRGBW(255,0,0,0,3);
-    farbeRGBW(255,0,0,0,1);
-    farbeRGBW(255,0,0,0,4);
-    break;
-
 
   }
 
@@ -115,6 +107,22 @@ for (int i = 1; i <= 60; i++){
       dimmen(0,1);
       dimmen(0,2);
     }  
+  }
+
+  if (i > 56){
+    if (i%2){
+      farbeRGBW(255,0,0,0,2);
+      farbeRGBW(255,0,0,0,3);
+      farbeRGBW(255,0,0,0,1);
+      farbeRGBW(255,0,0,0,4);
+    }else{
+      farbeRGBW(0,0,255,0,2);
+      farbeRGBW(0,0,255,0,3);
+      farbeRGBW(0,0,255,0,1);
+      farbeRGBW(0,0,255,0,4);
+
+    }
+    
   }
     nextHalfBeat(start);
 //synchronisation um halben beat verschoben (snare am anfang)
