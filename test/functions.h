@@ -1,9 +1,8 @@
 #include <DmxSimple.h>
 
-void farbeRGB(int, int, int, int);
+void farbeRGBW(int, int, int, int, int);
 void drehen(int, int, int, int);
 int channelStart(int);
-void white(int);
 void dimmen(int, int);
 
 void dimmen(int proz, int nr){
@@ -26,19 +25,13 @@ void drehen(int x, int y, int speed, int nr){
         DmxSimple.write(channel_start + 2, float(y) / 180 * 255);
 }
 
-void white(int nr){
-    int channel_start = channelStart(nr);
-    DmxSimple.write(channel_start, 255);
-    DmxSimple.write(channel_start + 4, 255);
-}
-
-void farbeRGB(int red, int green, int blue, int nr){
+void farbeRGBW(int red, int green, int blue, int white, int nr){
   int channel_start = channelStart(nr);
         DmxSimple.write(channel_start, 255);
         DmxSimple.write(channel_start + 1, red);
         DmxSimple.write(channel_start + 2, green);
         DmxSimple.write(channel_start + 3, blue);
-
+        DmxSimple.write(channel_start + 4, white);
 }
 
 int channelStart(int i){
