@@ -51,9 +51,11 @@ dimmen(0,3);
 dimmen(0,1);
 dimmen(0,4);
 
+int maxHelligkeit = 100; //für fading nach 60 takten
+
 //start bei 08:79 sekunden
 
-for (int i = 1; i <= 60; i++){
+for (int i = 1; i <= 70; i++){
  
   //synchronisation auf beat
   switch(i){
@@ -71,18 +73,51 @@ for (int i = 1; i <= 60; i++){
     farbeRGBW(0,0,0,255,4);
     break;
   case 18: 
-    drehen(540,0,25,2);
-    drehen(540,0,25,3);
+    drehen(540,0,50,2);
+    drehen(540,0,50,3);
     break;
-  case 30: 
-    drehen(0,0,25,2);
-    drehen(0,0,25,3);
+  case 28: 
+    drehen(540,90,50,2);
+    drehen(540,90,50,3);
     break;
-  case 48:
+  case 32:
+    dimmen(0,1);
+    dimmen(0,2);
+    dimmen(0,3);
+    dimmen(0,4);
+    farbeRGBW(0,255,0,0,2);
+    delay(517.24 / 4);
+    dimmen(0,2);
+    farbeRGBW(0,255,0,0,1);
+    break;
+  case 33:
+    farbeRGBW(0,0,0,255,1);
+    farbeRGBW(0,0,0,255,2);
+    farbeRGBW(0,0,0,255,3);
+    farbeRGBW(0,0,0,255,4);
+    break;
+  case 34:
+    dimmen(0,1);
+    dimmen(0,2);
+    dimmen(0,3);
+    dimmen(0,4);
+    farbeRGBW(0,255,0,0,3);
+    delay(517.24 / 4);
+    dimmen(0,3);
+    farbeRGBW(0,255,0,0,4);
+    break;
+  case 35:
+    farbeRGBW(0,0,0,255,1);
+    farbeRGBW(0,0,0,255,2);
+    farbeRGBW(0,0,0,255,3);
+    farbeRGBW(0,0,0,255,4);
+    break;
+  
+  case 48:  //während Stille nach oben drehen und pink
     dimmen(0,1);
     dimmen(0,4);
     farbeRGBW(255,0,255,0,2);
-    farbeRGBW(255,0,255,0,2);
+    farbeRGBW(255,0,255,0,3);
     dimmen(20,2);
     dimmen(20,3);
     drehen(0,180,10,2);
@@ -91,11 +126,11 @@ for (int i = 1; i <= 60; i++){
   case 55:
     drehen(0,150,100,2);
     drehen(0,150,100,3);
-
+    break;
   }
 
   //nach Schuss
-  if (i >= 18 and i < 48){
+  if (i >= 18 and i < 31){
      if(i%2){
       farbeRGBW(255,0,0,0,1);
       farbeRGBW(255,0,0,0,2);
@@ -109,7 +144,25 @@ for (int i = 1; i <= 60; i++){
     }  
   }
 
+  if (i > 35 and i < 48){  //nach übergang
+     if(i%2){
+      farbeRGBW(0,255,0,0,1);
+      farbeRGBW(0,255,0,0,2);
+      dimmen(0,4);
+      dimmen(0,3);
+    }else{
+      farbeRGBW(0,0,255,0,3);
+      farbeRGBW(0,0,255,0,4);
+      dimmen(0,1);
+      dimmen(0,2);
+    }  
+  }
+
   if (i > 56){
+    if (i > 60){
+      maxHelligkeit = (70 - i) * 10;
+    }
+
     if (i%2){
       farbeRGBW(255,0,0,0,2);
       farbeRGBW(255,0,0,0,3);
@@ -120,10 +173,13 @@ for (int i = 1; i <= 60; i++){
       farbeRGBW(0,0,255,0,3);
       farbeRGBW(0,0,255,0,1);
       farbeRGBW(0,0,255,0,4);
-
     }
-    
+  dimmen(maxHelligkeit,1);
+  dimmen(maxHelligkeit,2);
+  dimmen(maxHelligkeit,3);
+  dimmen(maxHelligkeit,4); 
   }
+
     nextHalfBeat(start);
 //synchronisation um halben beat verschoben (snare am anfang)
 
@@ -137,6 +193,22 @@ for (int i = 1; i <= 60; i++){
       delay(100);
       dimmen(0,4);
    }
+  }
+
+  if (i == 32){
+    farbeRGBW(0,255,0,0,4);
+    dimmen(0,1);
+    delay(510.24 / 4);
+    farbeRGBW(0,255,0,0,3);
+    dimmen(0,4);
+  }
+
+  if (i == 34){
+    farbeRGBW(0,255,0,0,1);
+    dimmen(0,4);
+    delay(510.24 / 4);
+    farbeRGBW(0,255,0,0,2);
+    dimmen(0,1);
   }
   
  
