@@ -216,13 +216,4 @@ for (int i = 1; i <= 70; i++){
 }
 }
 
-void loop() {/*
-drehen(180,0,100,2);
-delay(1000);
-drehen(100,0,100,2);
-delay(1000);
-*/
-
-  // put your main code here, to run repeatedly:
-
-}
+void loop() {}
