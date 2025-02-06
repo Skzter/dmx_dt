@@ -1,4 +1,3 @@
-## Hier krachts komplett
-# dmx_dt
-unser tolles dmx project
-test
+# DMX Projekt in Digitaltechnik 1
+
+Mit DMX 4 Scheinwerfer ansteuern und sie zu einem Beat aufleuchten lassen und bewegen.
